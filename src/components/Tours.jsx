@@ -1,9 +1,5 @@
-import { useRef, useEffect } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { img } from '../utils'
-
-gsap.registerPlugin(ScrollTrigger)
+import useInView from '../hooks/useInView'
 
 const tours = [
   {
@@ -36,33 +32,12 @@ const tours = [
 ]
 
 export default function Tours() {
-  const sectionRef = useRef()
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.tour-card',
-        { y: 80, opacity: 0 },
-        {
-          y: 0, opacity: 1,
-          duration: 0.8,
-          ease: 'power3.out',
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 75%',
-            once: true,
-          },
-        }
-      )
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
+  const [ref, visible] = useInView(0.1)
 
   return (
-    <section id="tours" ref={sectionRef} className="section-padding bg-primary text-white">
+    <section id="tours" ref={ref} className="section-padding bg-primary text-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-accent font-semibold text-sm tracking-wider uppercase mb-3">
             Gói tour trải nghiệm
           </p>
@@ -73,7 +48,13 @@ export default function Tours() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {tours.map((tour, i) => (
-            <div key={i} className="tour-card group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-500 hover:-translate-y-2">
+            <div
+              key={i}
+              className={`group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-700 hover:-translate-y-2 ${
+                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+              }`}
+              style={{ transitionDelay: visible ? `${i * 150}ms` : '0ms' }}
+            >
               <div className="relative overflow-hidden">
                 <img
                   src={tour.image}
@@ -115,7 +96,7 @@ export default function Tours() {
         </div>
 
         {/* Included / Not included */}
-        <div className="grid md:grid-cols-2 gap-8 mt-16">
+        <div className={`grid md:grid-cols-2 gap-8 mt-16 transition-all duration-700 delay-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
             <h3 className="text-xl font-bold mb-4 text-accent" style={{ fontFamily: 'var(--font-heading)' }}>
               Giá tour bao gồm
