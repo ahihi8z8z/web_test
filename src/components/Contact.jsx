@@ -91,9 +91,9 @@ export default function Contact() {
               <a href="mailto:lowtechtravel@gmail.com" className="btn-primary justify-center">
                 Nhận báo giá ngay
               </a>
-              <a href="mailto:lowtechtravel@gmail.com" className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-4 rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+              <button onClick={() => window.dispatchEvent(new Event('open-chat'))} className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-4 rounded-full hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer">
                 Chat với tư vấn viên
-              </a>
+              </button>
             </div>
           </div>
 

@@ -45,12 +45,12 @@ export default function CTABanner() {
           >
             Đặt tour ngay
           </a>
-          <a
-            href="mailto:lowtechtravel@gmail.com"
-            className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-primary transition-all duration-300"
+          <button
+            onClick={() => window.dispatchEvent(new Event('open-chat'))}
+            className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-primary transition-all duration-300 cursor-pointer"
           >
             Chat với tư vấn viên
-          </a>
+          </button>
         </div>
       </div>
     </section>

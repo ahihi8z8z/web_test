@@ -11,6 +11,7 @@ import CTABanner from './components/CTABanner'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingButtons from './components/FloatingButtons'
+import ChatWidget from './components/ChatWidget'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Contact />
       <Footer />
       <FloatingButtons />
+      <ChatWidget />
     </>
   )
 }
