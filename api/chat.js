@@ -77,6 +77,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply: text })
   } catch (err) {
     console.error('Gemini API error:', err.message)
-    return res.status(500).json({ error: err.message })
+    if (err.message && err.message.includes('429')) {
+      return res.status(429).json({ error: 'A Páo đang bận trả lời nhiều bạn quá! Vui lòng thử lại sau vài giây hoặc liên hệ email lowtechtravel@gmail.com nhé!' })
+    }
+    return res.status(500).json({ error: 'Xin lỗi, mình gặp trục trặc rồi. Bạn thử lại hoặc liên hệ email lowtechtravel@gmail.com nhé!' })
   }
 }
