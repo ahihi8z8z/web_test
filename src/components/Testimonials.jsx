@@ -93,17 +93,12 @@ export default function Testimonials() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.review-card', {
-        y: 50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
+      gsap.fromTo('.review-card',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()

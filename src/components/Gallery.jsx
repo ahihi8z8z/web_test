@@ -38,17 +38,12 @@ export default function Gallery() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.gallery-item', {
-        y: 60,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
+      gsap.fromTo('.gallery-item',
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.1,
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()

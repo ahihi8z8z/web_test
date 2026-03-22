@@ -75,17 +75,12 @@ export default function FAQ() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.faq-item', {
-        y: 30,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
+      gsap.fromTo('.faq-item',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()

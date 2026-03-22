@@ -40,17 +40,20 @@ export default function Tours() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.tour-card', {
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
+      gsap.fromTo('.tour-card',
+        { y: 80, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            once: true,
+          },
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()

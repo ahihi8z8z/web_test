@@ -36,17 +36,12 @@ export default function Itinerary() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.itin-card', {
-        x: (i) => (i % 2 === 0 ? -80 : 80),
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
+      gsap.fromTo('.itin-card',
+        { x: (i) => (i % 2 === 0 ? -80 : 80), opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out', stagger: 0.3,
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()
