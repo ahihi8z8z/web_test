@@ -78,55 +78,31 @@ const reviews = [
 function AvatarIcon({ gender }) {
   if (gender === 'female') {
     return (
-      <svg className="w-full h-full" viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="40" r="40" fill="#FDEBD0" />
-        <circle cx="40" cy="32" r="14" fill="#D4A853" />
-        <ellipse cx="40" cy="68" rx="22" ry="16" fill="#D4A853" />
-        <circle cx="40" cy="32" r="12" fill="#FDEBD0" />
-        <circle cx="35" cy="30" r="1.5" fill="#1a3c34" />
-        <circle cx="45" cy="30" r="1.5" fill="#1a3c34" />
-        <path d="M37 35 Q40 38 43 35" stroke="#1a3c34" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-        <path d="M24 26 Q30 14 40 16 Q50 14 56 26 Q52 18 40 20 Q28 18 24 26Z" fill="#2d1a0e" />
-        <path d="M22 30 Q20 22 28 18" stroke="#2d1a0e" strokeWidth="3" fill="none" strokeLinecap="round" />
-        <path d="M58 30 Q60 22 52 18" stroke="#2d1a0e" strokeWidth="3" fill="none" strokeLinecap="round" />
-      </svg>
+      <div className="w-full h-full rounded-full bg-pink-100 flex items-center justify-center">
+        <svg className="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-7 18c0-3.87 3.13-7 7-7s7 3.13 7 7H5Z" />
+        </svg>
+      </div>
     )
   }
 
   if (gender === 'couple') {
     return (
-      <svg className="w-full h-full" viewBox="0 0 80 80" fill="none">
-        <circle cx="40" cy="40" r="40" fill="#E8F5E9" />
-        <circle cx="30" cy="30" r="9" fill="#FDEBD0" />
-        <circle cx="30" cy="30" r="7" fill="#FDEBD0" />
-        <circle cx="27" cy="29" r="1" fill="#1a3c34" />
-        <circle cx="33" cy="29" r="1" fill="#1a3c34" />
-        <path d="M28 33 Q30 35 32 33" stroke="#1a3c34" strokeWidth="0.8" fill="none" strokeLinecap="round" />
-        <path d="M21 25 Q25 18 30 20 Q35 18 39 25 Q36 20 30 22 Q24 20 21 25Z" fill="#2d1a0e" />
-        <ellipse cx="30" cy="58" rx="14" ry="12" fill="#D4A853" />
-        <circle cx="50" cy="30" r="9" fill="#FDEBD0" />
-        <circle cx="50" cy="30" r="7" fill="#FDEBD0" />
-        <circle cx="47" cy="29" r="1" fill="#1a3c34" />
-        <circle cx="53" cy="29" r="1" fill="#1a3c34" />
-        <path d="M48 33 Q50 35 52 33" stroke="#1a3c34" strokeWidth="0.8" fill="none" strokeLinecap="round" />
-        <rect x="44" y="22" width="12" height="6" rx="3" fill="#2d1a0e" />
-        <ellipse cx="50" cy="58" rx="14" ry="12" fill="#2d5a4e" />
-      </svg>
+      <div className="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
+        <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5C23 14.17 18.33 13 16 13Z" />
+        </svg>
+      </div>
     )
   }
 
-  // male (default)
+  // male
   return (
-    <svg className="w-full h-full" viewBox="0 0 80 80" fill="none">
-      <circle cx="40" cy="40" r="40" fill="#E3F2FD" />
-      <circle cx="40" cy="32" r="14" fill="#2d5a4e" />
-      <ellipse cx="40" cy="68" rx="22" ry="16" fill="#2d5a4e" />
-      <circle cx="40" cy="32" r="12" fill="#FDEBD0" />
-      <circle cx="35" cy="30" r="1.5" fill="#1a3c34" />
-      <circle cx="45" cy="30" r="1.5" fill="#1a3c34" />
-      <path d="M37 35 Q40 38 43 35" stroke="#1a3c34" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <rect x="28" y="20" width="24" height="8" rx="4" fill="#2d1a0e" />
-    </svg>
+    <div className="w-full h-full rounded-full bg-blue-100 flex items-center justify-center">
+      <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-7 18c0-3.87 3.13-7 7-7s7 3.13 7 7H5Z" />
+      </svg>
+    </div>
   )
 }
 
