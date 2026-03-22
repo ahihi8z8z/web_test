@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1a3c34;
+  --color-primary-light: #2d5a4e;
+  --color-accent: #d4a853;
+  --color-accent-light: #e8c97a;
+  --color-cream: #faf6ee;
+  --color-dark: #0f1a16;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background: var(--color-cream);
+    overflow-x: hidden;
+    margin: 0;
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  .heading-xl {
+    font-family: var(--font-heading);
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight;
+  }
+  .heading-lg {
+    font-family: var(--font-heading);
+    @apply text-3xl md:text-5xl font-bold leading-tight;
+  }
+  .heading-md {
+    font-family: var(--font-heading);
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-full
+           hover:bg-accent-light transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-full
+           hover:bg-white hover:text-primary transition-all duration-300 cursor-pointer;
+  }
+}
