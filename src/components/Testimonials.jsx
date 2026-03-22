@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import useInView from '../hooks/useInView'
+import { img } from '../utils'
 
 const reviews = [
   {
@@ -8,6 +9,7 @@ const reviews = [
     date: '12/10/2023',
     stars: 5,
     gender: 'female',
+    avatar: '/images/reviews/review1.png',
     quote: 'Một chuyến đi thực sự \'chữa lành\' để trốn deadline. Lô Lô Chải yên bình đến lạ. Mình cực mê việc ngồi nhâm nhi cafe Cực Bắc, ngắm nhìn những nếp nhà trình tường lợp ngói âm dương. Hướng dẫn viên rất nhiệt tình và chụp ảnh siêu có tâm!',
     helpful: 45,
   },
@@ -17,6 +19,7 @@ const reviews = [
     date: '28/09/2023',
     stars: 5,
     gender: 'male',
+    avatar: '/images/reviews/review2.png',
     quote: 'Lần đầu bay từ Nam ra Bắc để đi Hà Giang, ban đầu mình hơi ngại đường xa nhưng dịch vụ tour rất chu đáo khiến mình hoàn toàn an tâm. Lẩu gà đen và rượu ngô ở bản quá tuyệt vời. Bà con người Lô Lô cực kỳ hiếu khách.',
     helpful: 32,
   },
@@ -26,6 +29,7 @@ const reviews = [
     date: '15/09/2023',
     stars: 4,
     gender: 'male',
+    avatar: '/images/reviews/review3.png',
     quote: 'Cảnh sắc thiên nhiên thiêng liêng khi đứng dưới Cột cờ Lũng Cú làm tôi rất xúc động. Xe di chuyển êm ái, tài xế rành đường đèo nên an toàn. Mình trừ 1 sao vì hôm mình đi thời tiết sương mù dày đặc không ngắm được trọn vẹn cảnh quang, nhưng dịch vụ của công ty thì rất tốt.',
     helpful: 89,
   },
@@ -35,6 +39,7 @@ const reviews = [
     date: '02/09/2023',
     stars: 5,
     gender: 'female',
+    avatar: '/images/reviews/review4.png',
     quote: 'Vợ chồng mình đã có một kỳ nghỉ kỷ niệm tuyệt vời tại đây. Homestay sạch sẽ, view nhìn ra núi Rồng cực kỳ hùng vĩ. Buổi tối mặc trang phục truyền thống đốt lửa trại là kỷ niệm mình không bao giờ quên.',
     helpful: 15,
   },
@@ -44,6 +49,7 @@ const reviews = [
     date: '20/08/2023',
     stars: 5,
     gender: 'female',
+    avatar: '/images/reviews/review5.png',
     quote: 'Ở độ tuổi của mình, đi miền núi sợ nhất là mệt mỏi, nhưng lịch trình tour được sắp xếp rất hợp lý, vừa đủ thời gian nghỉ ngơi vừa thăm thú được nhiều nơi. Cảm ơn đội ngũ đã chăm sóc đoàn rất tận tình.',
     helpful: 21,
   },
@@ -69,7 +75,12 @@ function Stars({ count, size = 'w-4 h-4' }) {
   )
 }
 
-function AvatarIcon({ gender, name }) {
+function Avatar({ avatar, gender, name }) {
+  if (avatar) {
+    return (
+      <img src={img(avatar)} alt={name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+    )
+  }
   const initials = name.split(' ').slice(-1)[0][0]
   const bg = gender === 'female' ? 'bg-pink-100 text-pink-600' : 'bg-blue-100 text-blue-600'
   return (
@@ -180,7 +191,7 @@ export default function Testimonials() {
                   {/* Header */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
-                      <AvatarIcon gender={r.gender} name={r.name} />
+                      <Avatar avatar={r.avatar} gender={r.gender} name={r.name} />
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="font-semibold text-primary text-sm">{r.name}</span>
