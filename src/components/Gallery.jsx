@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { img } from '../utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -8,27 +9,27 @@ const categories = [
   {
     title: 'Homestay',
     desc: 'Nhà trình tường truyền thống, ấm cúng giữa núi rừng',
-    images: ['/images/homestay/homestay1.jpg', '/images/homestay/homestay2.jpg', '/images/homestay/homestay3.jpg'],
+    images: [img('/images/homestay/homestay1.jpg'), img('/images/homestay/homestay2.jpg'), img('/images/homestay/homestay3.jpg')],
   },
   {
     title: 'Trang phục',
     desc: 'Sắc màu rực rỡ của người Lô Lô Đen',
-    images: ['/images/costume/costume1.jpg', '/images/costume/costume2.jpg', '/images/costume/costume3.jpg'],
+    images: [img('/images/costume/costume1.jpg'), img('/images/costume/costume2.jpg'), img('/images/costume/costume3.jpg')],
   },
   {
     title: 'Ẩm thực',
     desc: 'Hương vị vùng cao, nguyên liệu tự nhiên',
-    images: ['/images/food/food1.jpg', '/images/food/food2.jpg', '/images/food/food3.jpg'],
+    images: [img('/images/food/food1.jpg'), img('/images/food/food2.jpg'), img('/images/food/food3.jpg')],
   },
   {
     title: 'Điểm check-in',
     desc: 'Cảnh quan thiên nhiên hùng vĩ, giàu bản sắc',
-    images: ['/images/checkin/checkin1.webp', '/images/checkin/checkin2.webp', '/images/checkin/checkin3.jpg'],
+    images: [img('/images/checkin/checkin1.webp'), img('/images/checkin/checkin2.webp'), img('/images/checkin/checkin3.jpg')],
   },
   {
     title: 'Văn hóa & Con người',
     desc: 'Đời sống giản dị, truyền thống đáng trân quý',
-    images: ['/images/culture/culture1.jpg', '/images/culture/culture4.jpg', '/images/culture/culture5.jpg'],
+    images: [img('/images/culture/culture1.jpg'), img('/images/culture/culture4.jpg'), img('/images/culture/culture5.jpg')],
   },
 ]
 

@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { img } from '../utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -72,7 +73,7 @@ export default function About() {
           <div className="about-img relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/images/culture/culture2.jpg"
+                src={img('/images/culture/culture2.jpg')}
                 alt="Con người Lô Lô Chải"
                 className="w-full h-[500px] object-cover"
               />

@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { img } from '../utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -103,7 +104,7 @@ export default function Contact() {
           {/* Map / Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-xl h-[400px] md:h-full min-h-[400px]">
             <img
-              src="/images/hero/hero5.jpg"
+              src={img('/images/hero/hero5.jpg')}
               alt="Lô Lô Chải landscape"
               className="w-full h-full object-cover"
               loading="lazy"

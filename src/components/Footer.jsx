@@ -1,3 +1,5 @@
+import { img } from '../utils'
+
 export default function Footer() {
   return (
     <footer className="bg-dark text-white/60 py-12">
@@ -5,7 +7,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/images/logo/logo.png" alt="Low-tech Travel" className="w-10 h-10 rounded-full object-cover" />
+              <img src={img('/images/logo/logo.png')} alt="Low-tech Travel" className="w-10 h-10 rounded-full object-cover" />
               <span className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
                 Low-tech Travel
               </span>

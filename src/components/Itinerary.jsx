@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { img } from '../utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,7 +16,7 @@ const days = [
       'Tham quan bản làng',
       'Ăn tối & giao lưu văn hóa',
     ],
-    image: '/images/homestay/homestay1.jpg',
+    image: img('/images/homestay/homestay1.jpg'),
   },
   {
     day: 'Ngày 2',
@@ -26,7 +27,7 @@ const days = [
       'Thưởng thức café Cực Bắc',
       'Trả phòng & kết thúc hành trình',
     ],
-    image: '/images/checkin/checkin1.webp',
+    image: img('/images/checkin/checkin1.webp'),
   },
 ]
 

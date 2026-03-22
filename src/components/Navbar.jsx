@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { img } from '../utils'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -29,7 +30,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
-          <img src="/images/logo/logo.png" alt="Low-tech Travel" className="h-10 w-10 rounded-full object-cover" />
+          <img src={img('/images/logo/logo.png')} alt="Low-tech Travel" className="h-10 w-10 rounded-full object-cover" />
           <span className="text-white font-heading text-xl font-bold hidden sm:block"
                 style={{ fontFamily: 'var(--font-heading)' }}>
             Low-tech Travel

@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import ParticleBackground from './ParticleBackground'
+import { img } from '../utils'
 
 export default function Hero() {
   const heroRef = useRef()
@@ -44,7 +45,7 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero/hero1.jpg"
+          src={img('/images/hero/hero1.jpg')}
           alt="Lô Lô Chải"
           className="w-full h-full object-cover"
         />

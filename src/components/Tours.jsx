@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { img } from '../utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -9,7 +10,7 @@ const tours = [
     name: 'Khám phá Lô Lô Chải',
     duration: '2 ngày 1 đêm',
     price: '1.490.000',
-    image: '/images/checkin/checkin1.webp',
+    image: img('/images/checkin/checkin1.webp'),
     highlight: 'Check-in Cột cờ Lũng Cú, trải nghiệm homestay, ẩm thực địa phương',
     fit: 'Người bận rộn, đi ngắn ngày',
     tag: 'Phổ biến nhất',
@@ -18,7 +19,7 @@ const tours = [
     name: 'Sống cùng bản địa',
     duration: '3 ngày 2 đêm',
     price: '2.390.000',
-    image: '/images/culture/culture1.jpg',
+    image: img('/images/culture/culture1.jpg'),
     highlight: 'Tham gia sinh hoạt cùng người Lô Lô, mặc trang phục truyền thống, trekking nhẹ',
     fit: 'Người thích trải nghiệm văn hóa',
     tag: 'Trải nghiệm sâu',
@@ -27,7 +28,7 @@ const tours = [
     name: 'Hành trình Đông Bắc trọn vẹn',
     duration: '3 ngày 2 đêm',
     price: '2.790.000',
-    image: '/images/hero/hero3.jpg',
+    image: img('/images/hero/hero3.jpg'),
     highlight: 'Lô Lô Chải – Đồng Văn – Mã Pí Lèng, ngắm cảnh, chụp ảnh',
     fit: 'Người thích khám phá & check-in',
     tag: 'Trọn vẹn',
