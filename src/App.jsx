@@ -5,9 +5,12 @@ import Tours from './components/Tours'
 import Itinerary from './components/Itinerary'
 import WhyUs from './components/WhyUs'
 import Gallery from './components/Gallery'
+import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
+import CTABanner from './components/CTABanner'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import FloatingButtons from './components/FloatingButtons'
 
 function App() {
   return (
@@ -19,9 +22,12 @@ function App() {
       <Itinerary />
       <WhyUs />
       <Gallery />
+      <Testimonials />
       <FAQ />
+      <CTABanner />
       <Contact />
       <Footer />
+      <FloatingButtons />
     </>
   )
 }
