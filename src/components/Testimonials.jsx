@@ -1,121 +1,67 @@
+import { useState } from 'react'
 import useInView from '../hooks/useInView'
 
 const reviews = [
   {
-    name: 'Nguyễn Thị Mai Anh',
+    name: 'Trần Mai Anh',
     city: 'Hà Nội',
-    tour: 'Tour 2N1Đ',
+    date: '12/10/2023',
     stars: 5,
     gender: 'female',
-    quote: 'Cảnh đẹp mê trang, homestay sạch sẽ, đồ ăn cực ngon! HDV bản địa vui tính, chụp ảnh có tâm lắm!',
-    date: 'Đã đi T4/2025',
+    quote: 'Một chuyến đi thực sự \'chữa lành\' để trốn deadline. Lô Lô Chải yên bình đến lạ. Mình cực mê việc ngồi nhâm nhi cafe Cực Bắc, ngắm nhìn những nếp nhà trình tường lợp ngói âm dương. Hướng dẫn viên rất nhiệt tình và chụp ảnh siêu có tâm!',
+    helpful: 45,
   },
   {
-    name: 'Trần Quốc Bảo',
-    city: 'TP. Hồ Chí Minh',
-    tour: 'Tour 3N2Đ',
+    name: 'Hoàng Hải',
+    city: 'TP. HCM',
+    date: '28/09/2023',
     stars: 5,
     gender: 'male',
-    quote: 'Trải nghiệm văn hóa cực kỳ chân thực, được tham gia sinh hoạt cùng người Lô Lô. Chuyến đi đáng giá từng đồng!',
-    date: 'Đã đi T3/2025',
+    quote: 'Lần đầu bay từ Nam ra Bắc để đi Hà Giang, ban đầu mình hơi ngại đường xa nhưng dịch vụ tour rất chu đáo khiến mình hoàn toàn an tâm. Lẩu gà đen và rượu ngô ở bản quá tuyệt vời. Bà con người Lô Lô cực kỳ hiếu khách.',
+    helpful: 32,
   },
   {
-    name: 'Lê Thu Trang',
-    city: 'Đà Nẵng',
-    tour: 'Tour 2N1Đ',
-    stars: 5,
-    gender: 'female',
-    quote: 'Lần đầu ở trình tường — ấm cúng, sạch sẽ, view núi siêu đẹp. Ăn thắng cố chuẩn vị, nhớ mãi!',
-    date: 'Đã đi T2/2025',
-  },
-  {
-    name: 'Phạm Gia Hưng',
-    city: 'Cần Thơ',
-    tour: 'Tour 3N2Đ',
-    stars: 5,
-    gender: 'male',
-    quote: 'Trekking nhẹ nhàng cảnh thi đình! Mã Pí Lèng hùng vĩ, Lô Lô Chải bình yên — rất tuyệt vời!',
-    date: 'Đã đi T3/2025',
-  },
-  {
-    name: 'Hoàng Yến & Minh Đức',
+    name: 'Phạm Văn Kiên',
     city: 'Hải Phòng',
-    tour: 'Tour 3N2Đ',
-    stars: 5,
-    gender: 'couple',
-    quote: 'Được mặc đồ truyền thống, học làm bánh, đặt vải cùng người bản địa. Trải nghiệm hiếm có và rất ý nghĩa!',
-    date: 'Đi cùng hội nhiếp ảnh',
-  },
-  {
-    name: 'Đỗ Văn Nam',
-    city: 'Hà Nội',
-    tour: 'Tour 2N1Đ',
-    stars: 5,
-    gender: 'male',
-    quote: 'Lịch trình hợp lý, không quá gấp, HDV nhiệt tình, hỗ trợ chụp ảnh đẹp miễn phí. 10 điểm!',
-    date: 'Đã đi T4/2025',
-  },
-  {
-    name: 'Nguyễn Thị Hạnh',
-    city: 'TP. Hồ Chí Minh',
-    tour: 'Tour 2N1Đ',
+    date: '15/09/2023',
     stars: 4,
-    gender: 'female',
-    quote: 'Gia đình mình có con nhỏ vẫn đi thoải mái. Không khí trong lành, người dân thân thiện.',
-    date: 'Gia đình 4 người · T2/2025',
+    gender: 'male',
+    quote: 'Cảnh sắc thiên nhiên thiêng liêng khi đứng dưới Cột cờ Lũng Cú làm tôi rất xúc động. Xe di chuyển êm ái, tài xế rành đường đèo nên an toàn. Mình trừ 1 sao vì hôm mình đi thời tiết sương mù dày đặc không ngắm được trọn vẹn cảnh quang, nhưng dịch vụ của công ty thì rất tốt.',
+    helpful: 89,
   },
   {
-    name: 'Vũ Phương Linh',
-    city: 'Hà Nội',
-    tour: 'Tour 3N2Đ',
+    name: 'Lê Thu Thảo',
+    city: 'Đà Nẵng',
+    date: '02/09/2023',
     stars: 5,
     gender: 'female',
-    quote: 'Check-in cháy máy ở Lô Lô Chải! Mỗi góc đều đẹp như phim. Cảm ơn Low-tech Travel vì chuyến đi tuyệt vời!',
-    date: 'Đã đi T3/2025',
+    quote: 'Vợ chồng mình đã có một kỳ nghỉ kỷ niệm tuyệt vời tại đây. Homestay sạch sẽ, view nhìn ra núi Rồng cực kỳ hùng vĩ. Buổi tối mặc trang phục truyền thống đốt lửa trại là kỷ niệm mình không bao giờ quên.',
+    helpful: 15,
+  },
+  {
+    name: 'Nguyễn Ngọc Bích',
+    city: 'Cần Thơ',
+    date: '20/08/2023',
+    stars: 5,
+    gender: 'female',
+    quote: 'Ở độ tuổi của mình, đi miền núi sợ nhất là mệt mỏi, nhưng lịch trình tour được sắp xếp rất hợp lý, vừa đủ thời gian nghỉ ngơi vừa thăm thú được nhiều nơi. Cảm ơn đội ngũ đã chăm sóc đoàn rất tận tình.',
+    helpful: 21,
   },
 ]
 
-function AvatarIcon({ gender }) {
-  if (gender === 'female') {
-    return (
-      <div className="w-full h-full rounded-full bg-pink-100 flex items-center justify-center">
-        <svg className="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-7 18c0-3.87 3.13-7 7-7s7 3.13 7 7H5Z" />
-        </svg>
-      </div>
-    )
-  }
+const ratingBars = [
+  { label: '5 sao', pct: 90 },
+  { label: '4 sao', pct: 8 },
+  { label: '3 sao', pct: 2 },
+  { label: '2 sao', pct: 0 },
+  { label: '1 sao', pct: 0 },
+]
 
-  if (gender === 'couple') {
-    return (
-      <div className="w-full h-full rounded-full bg-green-100 flex items-center justify-center">
-        <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5C23 14.17 18.33 13 16 13Z" />
-        </svg>
-      </div>
-    )
-  }
-
-  // male
-  return (
-    <div className="w-full h-full rounded-full bg-blue-100 flex items-center justify-center">
-      <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-7 18c0-3.87 3.13-7 7-7s7 3.13 7 7H5Z" />
-      </svg>
-    </div>
-  )
-}
-
-function Stars({ count }) {
+function Stars({ count, size = 'w-4 h-4' }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg
-          key={i}
-          className={`w-4 h-4 ${i < count ? 'text-yellow-400' : 'text-gray-300'}`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
+        <svg key={i} className={`${size} ${i < count ? 'text-amber-400' : 'text-gray-200'}`} fill="currentColor" viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
@@ -123,66 +69,161 @@ function Stars({ count }) {
   )
 }
 
+function AvatarIcon({ gender, name }) {
+  const initials = name.split(' ').slice(-1)[0][0]
+  const bg = gender === 'female' ? 'bg-pink-100 text-pink-600' : 'bg-blue-100 text-blue-600'
+  return (
+    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${bg}`}>
+      {initials}
+    </div>
+  )
+}
+
 export default function Testimonials() {
-  const [ref, visible] = useInView(0.1)
+  const [ref, visible] = useInView(0.05)
+  const [filter, setFilter] = useState('newest')
+  const [helpedIds, setHelpedIds] = useState(new Set())
+
+  const sorted = [...reviews].sort((a, b) => {
+    if (filter === 'helpful') return b.helpful - a.helpful
+    return 0 // newest = default order
+  })
+
+  const toggleHelpful = (i) => {
+    setHelpedIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(i)) next.delete(i)
+      else next.add(i)
+      return next
+    })
+  }
 
   return (
     <section id="reviews" ref={ref} className="section-padding bg-cream">
       <div className="max-w-7xl mx-auto">
-        <div className={`text-center mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-10 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-accent font-semibold text-sm tracking-wider uppercase mb-3">
             Đánh giá khách hàng
           </p>
           <h2 className="heading-lg text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
             Khách hàng nói gì về <span className="text-accent">Low-tech?</span>
           </h2>
-          <p className="text-dark/60 mt-4">
-            Những chia sẻ chân thực từ khách hàng đã trải nghiệm cùng Low-tech Travel
-          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {reviews.map((r, i) => (
-            <div
-              key={i}
-              className={`bg-white rounded-2xl p-5 shadow-sm border border-primary/5 hover:shadow-md hover:-translate-y-1 transition-all duration-700 ${
-                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              }`}
-              style={{ transitionDelay: visible ? `${i * 100}ms` : '0ms' }}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary/10">
-                  <AvatarIcon gender={r.gender} />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary text-sm">{r.name}</p>
-                  <p className="text-dark/40 text-xs">{r.city}</p>
-                </div>
+        <div className={`grid lg:grid-cols-[30%_1fr] gap-8 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* LEFT: Rating Summary */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-primary/5 h-fit lg:sticky lg:top-24">
+            <div className="text-center mb-5">
+              <p className="text-6xl font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>4.9</p>
+              <div className="flex justify-center mt-2">
+                <Stars count={5} size="w-6 h-6" />
               </div>
-              <Stars count={r.stars} />
-              <p className="text-dark/70 text-sm leading-relaxed mt-3 mb-4 italic">
-                &ldquo;{r.quote}&rdquo;
-              </p>
-              <div className="border-t border-primary/5 pt-3 flex items-center justify-between">
-                <span className="text-primary/50 text-xs font-medium">{r.tour}</span>
-                <span className="text-accent text-xs">{r.date}</span>
-              </div>
+              <p className="text-dark/40 text-sm mt-2">Dựa trên 128 lượt đánh giá</p>
             </div>
-          ))}
-        </div>
 
-        {/* Rating summary */}
-        <div className={`mt-10 text-center transition-all duration-700 delay-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-sm border border-primary/10">
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
+            <div className="space-y-2.5">
+              {ratingBars.map((bar, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm">
+                  <span className="text-dark/50 w-12 text-right flex-shrink-0">{bar.label}</span>
+                  <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-amber-400 rounded-full transition-all duration-1000"
+                      style={{ width: visible ? `${bar.pct}%` : '0%' }}
+                    />
+                  </div>
+                  <span className="text-dark/40 w-10 text-xs">{bar.pct}%</span>
+                </div>
               ))}
             </div>
-            <span className="font-bold text-primary text-lg">4.9/5</span>
-            <span className="text-dark/50 text-sm">(Hơn 500+ khách hàng hài lòng)</span>
+          </div>
+
+          {/* RIGHT: Review Feed */}
+          <div>
+            {/* Filter bar */}
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              {[
+                { key: 'newest', label: 'Mới nhất' },
+                { key: 'helpful', label: 'Hữu ích nhất' },
+              ].map((f) => (
+                <button
+                  key={f.key}
+                  onClick={() => setFilter(f.key)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                    filter === f.key
+                      ? 'bg-primary text-white'
+                      : 'bg-white text-dark/60 border border-primary/10 hover:border-primary/30'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+
+            {/* AI Summary */}
+            <div className="bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 rounded-xl p-4 mb-5">
+              <p className="text-sm text-dark/70">
+                <span className="font-semibold text-primary">AI Tóm tắt:</span>{' '}
+                Hầu hết khách hàng khen ngợi không gian tĩnh lặng, ẩm thực bản địa và trải nghiệm nhà trình tường Lô Lô Chải. Một vài lưu ý nhỏ về thời tiết sương mù.
+              </p>
+            </div>
+
+            {/* Review cards */}
+            <div className="space-y-4">
+              {sorted.map((r, i) => (
+                <div
+                  key={`${r.name}-${filter}`}
+                  className={`bg-white rounded-xl p-5 shadow-sm border border-primary/5 transition-all duration-500 ${
+                    visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: visible ? `${(i + 2) * 100}ms` : '0ms' }}
+                >
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <AvatarIcon gender={r.gender} name={r.name} />
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-primary text-sm">{r.name}</span>
+                          <span className="inline-flex items-center gap-1 text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            Đã trải nghiệm
+                          </span>
+                        </div>
+                        <p className="text-dark/40 text-xs">{r.city}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sub-header */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <Stars count={r.stars} />
+                    <span className="text-dark/30 text-xs">{r.date}</span>
+                  </div>
+
+                  {/* Body */}
+                  <p className="text-dark/70 text-sm leading-relaxed mb-4">
+                    {r.quote}
+                  </p>
+
+                  {/* Footer */}
+                  <div className="border-t border-primary/5 pt-3">
+                    <button
+                      onClick={() => toggleHelpful(i)}
+                      className={`inline-flex items-center gap-2 text-xs transition-colors cursor-pointer ${
+                        helpedIds.has(i) ? 'text-primary font-semibold' : 'text-dark/40 hover:text-dark/60'
+                      }`}
+                    >
+                      <svg className="w-4 h-4" fill={helpedIds.has(i) ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
+                      </svg>
+                      {r.helpful + (helpedIds.has(i) ? 1 : 0)} người thấy hữu ích
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

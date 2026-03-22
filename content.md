@@ -121,6 +121,69 @@ Ngày 2:
 
 # **3.4. Đánh giá khách hàng**
 
+YÊU CẦU THIẾT KẾ KHUNG ĐÁNH GIÁ (GIAO DIỆN CHUẨN GOOGLE PLAY/APP STORE)
+Gửi Đội ngũ Lập trình (Coder): Vui lòng thiết kế Section Đánh giá khách hàng theo cấu trúc chia làm 2 phần (Cột trái/phải trên Desktop, hoặc Trên/Dưới trên Mobile) như sau:
+PHẦN 1: BẢNG THỐNG KÊ TỔNG QUAN (Rating Summary)
+Phần này nằm bên trái (hoặc trên cùng), cung cấp cái nhìn toàn cảnh về chất lượng tour.
+Điểm trung bình (Số to, in đậm): 4.9 (Kèm icon 5 ngôi sao lớn bên dưới, ngôi sao cuối cùng khuyết một góc nhỏ).
+Tổng số lượt đánh giá: Hiển thị dòng text nhỏ: "Dựa trên 128 bài đánh giá".
+Thanh phân bổ tỷ lệ (Progress Bars): Thiết kế 5 thanh ngang trải dài từ 5 sao xuống 1 sao. (Thanh 5 sao dài nhất chiếm khoảng 90%, thanh 4 sao chiếm 8%, thanh 3-2-1 sao chỉ là một chấm nhỏ hoặc thanh rất ngắn để tạo sự chân thực).
+PHẦN 2: DANH SÁCH ĐÁNH GIÁ NỔI BẬT (Top Reviews)
+Phần này nằm bên phải (hoặc bên dưới). Cho phép cuộn dọc (scroll) để xem các đánh giá. Cần có nút lọc: "Mới nhất" | "Hữu ích nhất" | "Có hình ảnh".
+Thứ tự sắp xếp 5 bài đánh giá Test (Từ trên xuống dưới):
+Review 1 (Nằm trên cùng - Thu hút khách trẻ & Khẳng định sự "chữa lành")
+Tên: Trần Mai Anh (Hà Nội) | Ngày: 12/10/2023
+Đánh giá: ⭐⭐⭐⭐⭐ (5 sao)
+Nội dung: "Một chuyến đi thực sự 'chữa lành' để trốn deadline. Lô Lô Chải yên bình đến lạ. Mình cực mê việc ngồi nhâm nhi cafe Cực Bắc, ngắm nhìn những nếp nhà trình tường lợp ngói âm dương. Hướng dẫn viên rất nhiệt tình và chụp ảnh siêu có tâm!"
+Tương tác (Nút nhỏ dưới góc): 👍 45 người thấy hữu ích.
+Review 2 (Thứ 2 - Kích thích khách miền Nam bay ra Bắc)
+Tên: Hoàng Hải (TP. HCM) | Ngày: 28/09/2023
+Đánh giá: ⭐⭐⭐⭐⭐ (5 sao)
+Nội dung: "Lần đầu bay từ Nam ra Bắc để đi Hà Giang, ban đầu mình hơi ngại đường xa nhưng dịch vụ tour rất chu đáo khiến mình hoàn toàn an tâm. Lẩu gà đen và rượu ngô ở bản quá tuyệt vời. Bà con người Lô Lô cực kỳ hiếu khách."
+Tương tác: 👍 32 người thấy hữu ích.
+Review 3 (Thứ 3 - Tạo điểm nhấn chân thực bằng review 4 sao)
+Tên: Phạm Văn Kiên (Hải Phòng) | Ngày: 15/09/2023
+Đánh giá: ⭐⭐⭐⭐ (4 sao)
+Nội dung: "Cảnh sắc thiên nhiên thiêng liêng khi đứng dưới Cột cờ Lũng Cú làm tôi rất xúc động. Xe di chuyển êm ái, tài xế rành đường đèo nên an toàn. Mình trừ 1 sao vì hôm mình đi thời tiết sương mù dày đặc không ngắm được trọn vẹn cảnh quang, nhưng dịch vụ của công ty thì rất tốt."
+Tương tác: 👍 89 người thấy hữu ích (Lưu ý cho Coder: Review 4 sao thường được khách đọc rất kỹ để xem điểm trừ là gì, nên lượt "hữu ích" thường rất cao).
+Review 4 (Thứ 4 - Nhắm đến tệp khách gia đình)
+Tên: Lê Thu Thảo (Đà Nẵng) | Ngày: 02/09/2023
+Đánh giá: ⭐⭐⭐⭐⭐ (5 sao)
+Nội dung: "Vợ chồng mình đã có một kỳ nghỉ kỷ niệm tuyệt vời tại đây. Homestay sạch sẽ, view nhìn ra núi Rồng cực kỳ hùng vĩ. Buổi tối mặc trang phục truyền thống đốt lửa trại là kỷ niệm mình không bao giờ quên."
+Tương tác: 👍 15 người thấy hữu ích.
+Review 5 (Thứ 5 - Nhấn mạnh sự an toàn cho khách lớn tuổi)
+Tên: Nguyễn Ngọc Bích (Cần Thơ) | Ngày: 20/08/2023
+Đánh giá: ⭐⭐⭐⭐⭐ (5 sao)
+Nội dung: "Ở độ tuổi của mình, đi miền núi sợ nhất là mệt mỏi, nhưng lịch trình tour được sắp xếp rất hợp lý, vừa đủ thời gian nghỉ ngơi vừa thăm thú được nhiều nơi. Cảm ơn đội ngũ đã chăm sóc đoàn rất tận tình."
+Tương tác: 👍 21 người thấy hữu ích.
+A. BỐ CỤC TỔNG THỂ (GRID/LAYOUT)
+Trên Desktop (Máy tính): Chia Section làm 2 cột. Cột trái chiếm 30% diện tích (Thống kê tổng quan). Cột phải chiếm 70% diện tích (Danh sách review chi tiết).
+Trên Mobile (Điện thoại): Giao diện Responsive xếp dọc (Vertical layout). Khối Thống kê nằm trên cùng, Khối Danh sách review nằm bên dưới, vuốt xuống để xem.
+B. CHI TIẾT CỘT TRÁI: BẢNG THỐNG KÊ (RATING OVERVIEW)
+Điểm trung bình: Hiển thị số 4.9 bằng Font chữ thật lớn, in đậm (Heading 2 hoặc Heading 1 tùy tỷ lệ).
+Hiển thị Sao tổng: Ngay dưới số 4.9 là 5 icon ngôi sao màu Vàng cam (Hex color gợi ý: #FFB400). Ngôi sao thứ 5 khuyết một góc nhỏ để khớp với điểm 4.9.
+Tổng lượt đánh giá: Dòng chữ nhỏ màu xám (Grey text): "Dựa trên 128 lượt đánh giá".
+Thanh Tiến trình (Progress Bars):
+Hiển thị 5 dòng tương ứng từ 5 Sao xuống 1 Sao.
+Mỗi dòng gồm: Chữ (VD: 5 sao) -> Một thanh ngang (Progress bar) bo góc tròn -> Tỷ lệ %.
+Dữ liệu mô phỏng cho thanh ngang: 5 Sao (90% - Thanh dài nhất, tô màu khối), 4 Sao (8% - Thanh ngắn), 3 Sao (2%), 2 Sao (0%), 1 Sao (0%).
+C. CHI TIẾT CỘT PHẢI: DANH SÁCH ĐÁNH GIÁ (REVIEW FEED)
+1. Thanh công cụ lọc (Filter & Sort Bar): Nằm ở ngay trên cùng của cột phải, bao gồm:
+Các nút bấm (Chips/Buttons): "Mới nhất", "Đánh giá cao", "Có hình ảnh".
+Đề xuất tính năng AI (AI Feature): Thêm một khung nổi bật ghi: "✨ AI Tóm tắt: Hầu hết khách hàng khen ngợi không gian tĩnh lặng, ẩm thực bản địa và trải nghiệm nhà trình tường Lô Lô Chải. Một vài lưu ý nhỏ về thời tiết sương mù." (Tính năng này giống Amazon hiện tại, rất ấn tượng!).
+2. Cấu trúc 1 Thẻ Đánh giá (Review Card Anatomy): Mỗi review là một khối (Card) bo góc nhẹ, có đường viền mỏng (border) hoặc đổ bóng (drop shadow) phân cách rõ ràng. Thành phần từ trên xuống:
+Header của Card: * Bên trái: Avatar hình tròn (Ảnh chân dung nhỏ) + Tên khách hàng (In đậm) + Dấu tích xanh "Đã trải nghiệm tour".
+Bên phải: Dấu 3 chấm (Options) báo cáo vi phạm.
+Sub-header: Cụm 5 ngôi sao đánh giá + Ngày tháng (VD: 12/10/2023) màu xám nhạt.
+Body Text (Nội dung chính): Cỡ chữ 14px-15px, màu xám đen dễ đọc (Dark Slate). Text không căn lều hai bên (Align left) để tự nhiên.
+Footer của Card (Tương tác): Nút biểu tượng ngón tay cái (Thumbs up) + Dòng chữ "X người thấy đánh giá này hữu ích".
+D. DỮ LIỆU ĐỂ LÊN BẢN NHÁP (MOCKUP DATA)
+Vui lòng đổ 5 dữ liệu này vào phần Danh sách Đánh giá theo đúng thứ tự:
+Review 1: Trần Mai Anh (Hà Nội) | 12/10/2023 | 5 Sao | "Một chuyến đi thực sự 'chữa lành' để trốn deadline. Lô Lô Chải yên bình đến lạ. Mình cực mê việc ngồi nhâm nhi cafe Cực Bắc, ngắm nhìn những nếp nhà trình tường lợp ngói âm dương. Hướng dẫn viên rất nhiệt tình và chụp ảnh siêu có tâm!" | 👍 45 hữu ích.
+Review 2: Hoàng Hải (TP. HCM) | 28/09/2023 | 5 Sao | "Lần đầu bay từ Nam ra Bắc để đi Hà Giang, ban đầu mình hơi ngại đường xa nhưng dịch vụ tour rất chu đáo khiến mình hoàn toàn an tâm. Lẩu gà đen và rượu ngô ở bản quá tuyệt vời. Bà con người Lô Lô cực kỳ hiếu khách." | 👍 32 hữu ích.
+Review 3: Phạm Văn Kiên (Hải Phòng) | 15/09/2023 | 4 Sao | "Cảnh sắc thiên nhiên thiêng liêng khi đứng dưới Cột cờ Lũng Cú làm tôi rất xúc động. Xe di chuyển êm ái, tài xế rành đường đèo nên an toàn. Mình trừ 1 sao vì hôm mình đi thời tiết sương mù dày đặc không ngắm được trọn vẹn cảnh quang, nhưng dịch vụ của công ty thì rất tốt." | 👍 89 hữu ích.
+Review 4: Lê Thu Thảo (Đà Nẵng) | 02/09/2023 | 5 Sao | "Vợ chồng mình đã có một kỳ nghỉ kỷ niệm tuyệt vời tại đây. Homestay sạch sẽ, view nhìn ra núi Rồng cực kỳ hùng vĩ. Buổi tối mặc trang phục truyền thống đốt lửa trại là kỷ niệm mình không bao giờ quên." | 👍 15 hữu ích.
+Review 5: Nguyễn Ngọc Bích (Cần Thơ) | 20/08/2023 | 5 Sao | "Ở độ tuổi của mình, đi miền núi sợ nhất là mệt mỏi, nhưng lịch trình tour được sắp xếp rất hợp lý, vừa đủ thời gian nghỉ ngơi vừa thăm thú được nhiều nơi. Cảm ơn đội ngũ đã chăm sóc đoàn rất tận tình." | 👍 21 hữu ích.
 
 
 
