@@ -50,10 +50,11 @@ export default function ChatWidget() {
 
       const data = await res.json()
 
+      const fallback = 'Xin lỗi, mình gặp trục trặc rồi. Bạn thử lại hoặc liên hệ email lowtechtravel@gmail.com nhé!'
       if (data.reply) {
         setMessages((prev) => [...prev, { role: 'bot', text: data.reply }])
       } else {
-        setMessages((prev) => [...prev, { role: 'bot', text: data.error || 'Xin lỗi, mình gặp trục trặc rồi. Bạn thử lại hoặc liên hệ email lowtechtravel@gmail.com nhé!' }])
+        setMessages((prev) => [...prev, { role: 'bot', text: data.error || fallback }])
       }
     } catch (err) {
       console.error('Chat error:', err)
