@@ -51,19 +51,27 @@ function getChat() {
   if (chatInstance) return chatInstance
 
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY
-  if (!apiKey) return null
+  if (!apiKey) {
+    console.warn('VITE_GEMINI_API_KEY is not set')
+    return null
+  }
 
-  const genAI = new GoogleGenerativeAI(apiKey)
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' })
+  try {
+    const genAI = new GoogleGenerativeAI(apiKey)
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
-  chatInstance = model.startChat({
-    history: [
-      { role: 'user', parts: [{ text: 'Hãy nhập vai theo system prompt sau và trả lời mọi câu hỏi theo đúng vai đó:\n\n' + SYSTEM_PROMPT }] },
-      { role: 'model', parts: [{ text: 'Chào bạn! Mình là A Páo — đại sứ du lịch của bản Lô Lô Chải đây! Bạn muốn tìm hiểu gì về Lô Lô Chải hay các tour của Low-tech Travel nào? Mình sẵn sàng hỗ trợ bạn! 😊' }] },
-    ],
-  })
+    chatInstance = model.startChat({
+      history: [
+        { role: 'user', parts: [{ text: 'Hãy nhập vai theo system prompt sau và trả lời mọi câu hỏi theo đúng vai đó:\n\n' + SYSTEM_PROMPT }] },
+        { role: 'model', parts: [{ text: 'Chào bạn! Mình là A Páo — đại sứ du lịch của bản Lô Lô Chải đây! Bạn muốn tìm hiểu gì về Lô Lô Chải hay các tour của Low-tech Travel nào? Mình sẵn sàng hỗ trợ bạn!' }] },
+      ],
+    })
 
-  return chatInstance
+    return chatInstance
+  } catch (err) {
+    console.error('Failed to init Gemini chat:', err)
+    return null
+  }
 }
 
 export default function ChatWidget() {
@@ -111,7 +119,9 @@ export default function ChatWidget() {
       const result = await chat.sendMessage(text)
       const response = await result.response.text()
       setMessages((prev) => [...prev, { role: 'bot', text: response }])
-    } catch {
+    } catch (err) {
+      console.error('Chat error:', err)
+      chatInstance = null
       setMessages((prev) => [...prev, { role: 'bot', text: 'Xin lỗi, mình gặp trục trặc rồi. Bạn thử lại hoặc liên hệ email lowtechtravel@gmail.com nhé!' }])
     }
 
