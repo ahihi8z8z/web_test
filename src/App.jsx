@@ -12,6 +12,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingButtons from './components/FloatingButtons'
 import ChatWidget from './components/ChatWidget'
+import PopupModal from './components/PopupModal'
 import RoomBanner from './components/Popup'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Footer />
       <FloatingButtons />
       <ChatWidget />
+      <PopupModal />
     </>
   )
 }
