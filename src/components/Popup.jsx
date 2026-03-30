@@ -1,76 +1,37 @@
-import { useState, useEffect } from 'react'
 import { img } from '../utils'
 
-export default function Popup() {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 3000)
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (!show) return null
-
+export default function RoomBanner() {
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm"
-      onClick={() => setShow(false)}
-    >
-      <div
-        className="relative mx-4 max-w-lg w-full bg-white rounded-2xl overflow-hidden shadow-2xl animate-popup"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close button */}
-        <button
-          onClick={() => setShow(false)}
-          className="absolute top-3 right-3 z-10 w-8 h-8 bg-black/40 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-colors"
-          aria-label="Đóng"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Image */}
-        <a href="https://phonglolochai.vercel.app" target="_blank" rel="noopener noreferrer">
+    <section className="section-padding bg-primary">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative rounded-2xl overflow-hidden shadow-xl">
           <img
             src={img('/images/popup.png')}
-            alt="Khám phá căn phòng Lô Lô Chải"
-            className="w-full object-cover"
+            alt="Nếp nhà Lô Lô Chải"
+            className="w-full h-64 sm:h-80 md:h-96 object-cover"
           />
-        </a>
-
-        {/* Content */}
-        <div className="p-5 text-center">
-          <h3
-            className="text-xl font-bold text-primary mb-2"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Khám phá căn phòng Lô Lô Chải
-          </h3>
-          <p className="text-dark/60 text-sm mb-4">
-            Trải nghiệm không gian homestay truyền thống ngay trên trình duyệt
-          </p>
-          <a
-            href="https://phonglolochai.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-accent hover:bg-accent-light text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
-          >
-            Khám phá ngay
-          </a>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-6 sm:p-10 text-center">
+            <h3
+              className="text-2xl sm:text-3xl font-bold text-white mb-3"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Dựng nếp nhà Lô Lô cho riêng bạn
+            </h3>
+            <p className="text-white/80 text-sm sm:text-base max-w-xl mb-5">
+              Tự mình khám phá không gian văn hóa truyền thống của người Lô Lô
+            </p>
+            <a
+              href="https://phonglolochai.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-accent hover:bg-accent-light text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              Khám phá ngay
+            </a>
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes popup-in {
-          from { opacity: 0; transform: scale(0.9) translateY(20px); }
-          to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .animate-popup {
-          animation: popup-in 0.4s ease-out;
-        }
-      `}</style>
-    </div>
+    </section>
   )
 }

@@ -12,7 +12,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingButtons from './components/FloatingButtons'
 import ChatWidget from './components/ChatWidget'
-import Popup from './components/Popup'
+import RoomBanner from './components/Popup'
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
       <Itinerary />
       <WhyUs />
       <Gallery />
+      <RoomBanner />
       <Testimonials />
       <FAQ />
       <CTABanner />
@@ -31,7 +32,6 @@ function App() {
       <Footer />
       <FloatingButtons />
       <ChatWidget />
-      <Popup />
     </>
   )
 }
